@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>請選擇學院</h1>
+<select id="college-list" onchange="collegeChange()">
+</select>
+
+<h1>請選擇科系</h1>
+<select id="depts-list">
+</select>
+<p id="demo"></p>
+
+<script>
+var colleges=["商學院","國際科技與管理學院","工學院","資電學院","建設學院","人文社會學院","金融學院","經營管理學院","理學院","建築專業學院","跨科系學習"];
+
+var depts1=["會計學系","國際經營與貿易學系","國際經營與貿易學系國際企業管理全英語學士班",
+				"財稅學系","合作經濟暨社會事業經營學系","統計學系","經濟學系","企業管理學系",
+				"行銷學系","國際企業管理學士學位學程(英語專班)","商學進修學士學位學程",
+				"財經法律研究所","科技管理碩士學位學程","產業碩士專班","商學專業碩士在職學位學程","商學博士學位學程"];
+	var depts2=["澳洲墨爾本皇家理工大學商學與創新雙學士學位學程","美國聖荷西州立大學商學大數據分析雙學士學位學程",
+				"美國普渡大學電機資訊雙學士學位學程","西班牙薩拉戈薩大學物流供應鏈管理與創新創業雙碩士學位學程",
+				"國際經營管理碩士學位學程"];
+	var depts3=["機械與電腦輔助工程學系","纖維與複合材料學系"];
+	var depts4=["資訊工程學系","電機工程學系","電子工程學系"];
+	var depts5=["化學工程學系","航太與系統工程學系","精密系統設計學士學位學程"];
+	var depts6=["中國文學系","外國語文學系"];
+	var depts7=["應用數學系","環境工程與科學學系"];
+	var depts8=["風險管理與保險學系","財務金融學系"];
+	var depts9=["經營管理碩士在職學位學程","電子商務碩士在職專班"];
+	var depts10=["建築專業學院學士班","建築學士學位學程"];
+	var depts11=["外語教學中心","國語文教學中心"];
+	
+	var collegeElement = document.getElementById("college-list");
+	var deptsElement = document.getElementById("depts-list");
+	
+	populateData(collegeElement,colleges);
+	function collegeChange(){
+	var selIndex=collegeElement.options[collegeElement.selectedIndex].value;
+	switch(selIndex){
+		case "0":
+			populateData(deptsElement,depts1);
+			break;
+		case "1":
+			populateData(deptsElement,depts2);
+			break;
+		case "2":
+			populateData(deptsElement,depts3);
+			break;
+		case "3":
+			populateData(deptsElement,depts4);
+			break;
+		case "4":
+			populateData(deptsElement,depts5);
+			break;
+		case "5":
+			populateData(deptsElement,depts6);
+			break;
+		case "6":
+			populateData(deptsElement,depts7);
+			break;
+		case "7":
+			populateData(deptsElement,depts8);
+			break;
+		case "8":
+			populateData(deptsElement,depts9);
+			break;
+		case "9":
+			populateData(deptsElement,depts10);
+			break;
+		case "10":
+			populateData(deptsElement,depts11);
+			break;
+		default:
+			console.log("Not Accept:");
+			}
+	}
+function populateData(selElement,data){
+	var options="";
+	for(var i=0;i<data.length;i++){
+	options=options+'<option value="'+i+'">'+data[i]+'</option>';
+	}
+	selElement.innerHTML=options;
+	}
+	</script>
+
+</body>
+</html>
